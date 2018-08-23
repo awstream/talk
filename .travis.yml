@@ -1,0 +1,14 @@
+language: ruby
+
+script:
+  - mkdir -p files
+  - mv talk.pdf files/
+  - mv talk.pptx files/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: files
+  on:
+    branch: master
